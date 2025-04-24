@@ -13,7 +13,7 @@ const QuestionsDiv = ({ question, answer }) => {
         onClick={ansDiv}
         className="flex justify-between items-center bg-zinc-800 hover:bg-zinc-700 cursor-pointer p-6 rounded-2xl border border-zinc-600 my-2"
       >
-        <h1 className="text-xl font-semibold">{question} ? </h1>
+        <h1 className="text-xl font-semibold">{question} </h1>
         <FontAwesomeIcon className="text-2xl" icon={isOpen ? faX : faPlus} />
       </div>
 
