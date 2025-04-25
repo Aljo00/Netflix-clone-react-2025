@@ -2,12 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TitleCard from "../components/home/TitleCard";
+import MediaList from "../components/home/MediaList";
 
 const Home = () => {
   return (
     <div>
       
       <TitleCard />
+      <MediaList />
       <div className="px-14 lg:px-36 ">
         <Footer />
       </div>

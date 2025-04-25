@@ -40,8 +40,8 @@ const Questions = () => {
         Frequently Asked Questions
       </h1>
 
-      {data.map(({ question, answer, i }) => (
-        <QuestionsDiv key={i} question={question} answer={answer} />
+      {data.map(({ question, answer}) => (
+        <QuestionsDiv key={Math.random()} question={question} answer={answer} />
       ))}
     </div>
   );

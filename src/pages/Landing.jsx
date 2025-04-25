@@ -12,7 +12,7 @@ import BeforFotter from '../components/landing/BeforFotter'
 const Landing = () => {
   return (
     <div>
-        <Navbar />
+        <Navbar user={false} />
         <Hero />
         <div className='px-14 lg:px-36 '>
         <Trending />
