@@ -617,7 +617,7 @@ const ReasonDiv = ({ hedding, text, index }) => {
 
   return (
     <div
-      className="relative bg-zinc-800 rounded-2xl border-2 border-white borderOpacity-20  
+      className="relative bg-zinc-800 rounded-2xl border-2 border-white/30 borderOpacity-20  
       flex-1 p-4 text-white pb-28"
     >
       <h1 className="text-lg font-bold break-words text-white mb-2">

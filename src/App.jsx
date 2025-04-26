@@ -1,29 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Player from "./pages/Player";
+const Landing = lazy(() => import("./components/Landing"));
+const Login = lazy(() => import("./pages/Login"));
+const Home = lazy(() => import("./pages/Home"));
+const Player = lazy(() => import("./pages/Player"));
 import { useUser } from "./context/UserContext";
 
 const App = () => {
-  const navigate = useNavigate()
-  const { user } = useUser()
-  useEffect(() => {
-    if (user && window.location.pathname === "/") {
-      navigate("/home");
-    }
-  }, [user, navigate]);
+
+  const { user } = useUser();
+
   return (
     <>
       <ToastContainer theme="dark" />
-      <Routes>
-        <Route path="/" element={user ? <Home /> : <Landing />} />
-        <Route path="/login" element={user ? <Home /> : <Login />} />
-        <Route path="/home" element={user ? <Home /> : <Landing />} />
-        <Route path="/player/:id" element={user ? <Player /> : <Landing />} />
-      </Routes>
+      <Suspense
+        fallback={
+          <div className="text-white text-center mt-10">Loading...</div>
+        }
+      >
+        <Routes>
+          {/* <Route path="/" element={user ? <Home /> : <Landing />} /> */}
+          <Route path="/login" element={user ? <Home /> : <Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/player/:id" element={<Player />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };

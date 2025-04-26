@@ -20,7 +20,7 @@ const LoginDiv = () => {
       toast.success("Sign in successfull.");
       setName("");
       setEmail("");
-      navigate("/home");
+      navigate("/");
     } else {
       await signUp(email, password);
       toast.success("Account created! Log in now.");

@@ -5,7 +5,9 @@ import { logOut } from "../../service/FirebaseService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
 const UserInfo = () => {
+
   const iconStyle = "text-white text-2xl cursor-pointer";
   const [menuOpen, setMenuOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -36,6 +38,7 @@ const UserInfo = () => {
     <div className="flex items-center gap-4">
       <CiSearch className={iconStyle} />
       <p>Children</p>
+
       <CiBellOn className={iconStyle} />
 
       <div
