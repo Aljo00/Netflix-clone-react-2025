@@ -34,7 +34,7 @@ const Player = () => {
   return (
     <div className='h-screen relative flex flex-col justify-center items-center'>
         <div onClick={() => navigate("/home")} className='absolute z-20 top-4 left-4 cursor-pointer'><IoArrowBackCircleOutline className='text-5xl' /></div>
-        <iframe src={`http://www.youtube.com/embed/${apiData.key}`} width="90%" height="90%" frameborder="0" title='Trailer' allowFullScreen></iframe>
+        <iframe src={`https://www.youtube.com/embed/${apiData.key}`} width="90%" height="90%" frameborder="0" title='Trailer' allowFullScreen></iframe>
 
         <div className='w-[90%] absolute z-20 bottom-2 flex justify-between'>
             <p>{apiData.published_at.slice(0, 10)}</p>

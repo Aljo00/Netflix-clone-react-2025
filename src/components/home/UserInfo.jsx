@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { CiSearch, CiBellOn } from "react-icons/ci";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { logOut } from "../../service/FirebaseService";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UserInfo = () => {
   const iconStyle = "text-white text-2xl cursor-pointer";
   const [menuOpen, setMenuOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
 
-  const handleMouseEnter = () => {
+  const navigate = useNavigate();
 
+  const handleMouseEnter = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
@@ -18,8 +22,14 @@ const UserInfo = () => {
   const handleMouseLeave = () => {
     const id = setTimeout(() => {
       setMenuOpen(false);
-    }, 300); 
+    }, 300);
     setTimeoutId(id);
+  };
+
+  const handleSignOut = async () => {
+    await logOut();
+    toast.success("Sign out successfull.");
+    navigate("/");
   };
 
   return (
@@ -27,7 +37,6 @@ const UserInfo = () => {
       <CiSearch className={iconStyle} />
       <p>Children</p>
       <CiBellOn className={iconStyle} />
-
 
       <div
         className="relative inline-block"
@@ -57,7 +66,7 @@ const UserInfo = () => {
               whitespace-nowrap
               text-white
             "
-            onClick={() => console.log("Sign out clicked")}
+            onClick={handleSignOut}
           >
             Sign out of Netflix
           </button>

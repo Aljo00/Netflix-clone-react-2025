@@ -3,9 +3,11 @@ import MainButton from './Buttons/MainButton'
 import LanguageButton from './Buttons/LanguageButton'
 import List from './home/List';
 import UserInfo from './home/UserInfo';
+import { useUser } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const { user } = useUser()
 
   const navigate = useNavigate()
 
@@ -15,7 +17,7 @@ const Navbar = ({ user }) => {
         <img onClick={() =>  navigate("/")} className='w-[164px] h-[40px] pl-[16px] cursor-pointer' src="/Netflix-logo.png" alt="" />
         <List user={user} />
         </div>
-        <div className='felx'>
+        <div className='flex'>
 
 
         

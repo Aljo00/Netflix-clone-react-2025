@@ -56,7 +56,7 @@ const TitleCard = () => {
   return (
     <div className="relative h-screen">
       <div className="absolute top-0 left-0 w-full z-30">
-        <Navbar user={true} />
+        <Navbar />
       </div>
 
 
