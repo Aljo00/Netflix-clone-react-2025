@@ -1,17 +1,17 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC-_hmuQ-XLZ_SAyk2UQku58gcLex1iiUk",
-  authDomain: "netflix-clone-react-6cad9.firebaseapp.com",
-  projectId: "netflix-clone-react-6cad9",
-  storageBucket: "netflix-clone-react-6cad9.firebasestorage.app",
-  messagingSenderId: "817699875370",
-  appId: "1:817699875370:web:afefbb0cfc887c032c7153"
+  apiKey: "AIzaSyB0r1yEUT-Uz8S5lMl9oKvWjAuR7r8nzlw",
+  authDomain: "netflix-react-clone-f64e0.firebaseapp.com",
+  projectId: "netflix-react-clone-f64e0",
+  storageBucket: "netflix-react-clone-f64e0.firebasestorage.app",
+  messagingSenderId: "977211562678",
+  appId: "1:977211562678:web:e3f5224a71947879dde417",
 };
 
-
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
-export const db = getFirestore(app)
+const app =
+  getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+export const auth = getAuth(app);
+export const db = getFirestore(app);

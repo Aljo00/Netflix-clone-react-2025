@@ -6,6 +6,7 @@ import { useUser } from "./context/UserContext";
 const Login = lazy(() => import("./pages/Login"));
 const Home = lazy(() => import("./pages/Home"));
 const Player = lazy(() => import("./pages/Player"));
+const MyList = lazy(() => import("./pages/MyList"));
 
 const App = () => {
   const { user } = useUser();
@@ -13,12 +14,13 @@ const App = () => {
   return (
     <>
       <ToastContainer theme="dark" />
-      <Suspense fallback={<div className="text-white text-center mt-10">Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="text-white text-center mt-10">Loading...</div>
+        }
+      >
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
@@ -26,6 +28,10 @@ const App = () => {
           <Route
             path="/player/:id"
             element={user ? <Player /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/my-list"
+            element={user ? <MyList /> : <Navigate to="/login" />}
           />
         </Routes>
       </Suspense>
