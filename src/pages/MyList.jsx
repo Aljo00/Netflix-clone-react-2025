@@ -10,6 +10,7 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const MyList = () => {
   const { user } = useUser();
@@ -31,6 +32,7 @@ const MyList = () => {
   const handleRemove = async (id) => {
     await deleteDoc(doc(db, "myList", id));
     setMyList((prev) => prev.filter((item) => item.id !== id));
+    toast.info("Removed from My List");
   };
 
   return (

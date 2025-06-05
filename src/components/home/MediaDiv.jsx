@@ -4,6 +4,7 @@ import { FaPlus, FaCheck } from "react-icons/fa";
 import { useUser } from "../../context/UserContext";
 import { db } from "../../config/firebase";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const MediaDiv = ({ img, name, id }) => {
   const navigate = useNavigate();
@@ -41,6 +42,9 @@ const MediaDiv = ({ img, name, id }) => {
         name,
       });
       setInMyList(true);
+      toast.success("Added to My List");
+    } else {
+      toast.info("Already in My List");
     }
   };
 
