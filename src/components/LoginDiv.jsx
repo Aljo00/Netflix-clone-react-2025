@@ -22,7 +22,7 @@ const LoginDiv = () => {
       setEmail("");
       navigate("/");
     } else {
-      await signUp(email, password);
+      await signUp(name, email, password);
       toast.success("Account created! Log in now.");
       setEmail("");
       setPassword("");
